@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>👩‍🎓 Register Student | EduTrack Pro</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1><i class="fas fa-user-graduate"></i> Register New Student</h1>
+      
+      <form id="registerForm" class="form">
+        <div class="form-group">
+          <label for="name"><i class="fas fa-id-card"></i> Full Name</label>
+          <input type="text" id="name" name="name" class="form-control" placeholder="e.g. Alex Johnson" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+          <input type="email" id="email" name="email" class="form-control" placeholder="student@example.com" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="roll_number"><i class="fas fa-id-badge"></i> Roll Number</label>
+          <input type="text" id="roll_number" name="roll_number" class="form-control" placeholder="S2023001" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="class"><i class="fas fa-school"></i> Class/Grade</label>
+          <input type="text" id="class" name="class" class="form-control" placeholder="Grade 9" required>
+        </div>
+        
+        <button type="submit" class="btn">
+          <i class="fas fa-save"></i> Register Student
+        </button>
+      </form>
+      
+      
+      <a href="index.html" class="btn btn-outline">
+        <i class="fas fa-arrow-left"></i> Back to Home
+      </a>
+    </div>
+  </div>
+  <a href="index.html" class="btn btn-outline">
+  <i class="fas fa-arrow-left"></i> Back to Home
+</a>
+
+
+<!-- ADD THE AUTH CHECK HERE -->
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    if (!sessionStorage.getItem('isAuthenticated')) {
+      window.location.href = 'login.html';
+    }
+  });
+</script>
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>

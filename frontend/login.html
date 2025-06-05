@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🔐 Login | EduTrack Pro</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="logo-container">
+        <i class="fas fa-graduation-cap" style="color: var(--gold); font-size: 3rem;"></i>
+        <h1>EduTrack Pro</h1>
+      </div>
+      <p class="subtitle">Teacher Login Portal</p>
+      
+      <form id="loginForm" class="form">
+        <div class="form-group">
+          <label for="teacher_id"><i class="fas fa-user-shield"></i> Teacher ID</label>
+          <input type="text" id="teacher_id" name="teacher_id" class="form-control" placeholder="Enter your ID" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="password"><i class="fas fa-lock"></i> Password</label>
+          <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
+        </div>
+        
+        <button type="submit" class="btn">
+          <i class="fas fa-sign-in-alt"></i> Login
+        </button>
+      </form>
+      
+      <div id="loginError" class="error-message" style="display: none;">
+        <i class="fas fa-exclamation-circle"></i> Invalid credentials. Please try again.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const teacherId = document.getElementById('teacher_id').value;
+      const password = document.getElementById('password').value;
+      const errorElement = document.getElementById('loginError');
+      
+      const btn = e.target.querySelector('button');
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Authenticating...';
+      
+      // Simple authentication (teacher_id: 12345, password: admin)
+      setTimeout(() => {
+        if (teacherId === '12345' && password === 'admin') {
+          // Store login state in sessionStorage
+          sessionStorage.setItem('isAuthenticated', 'true');
+          window.location.href = 'index.html';
+        } else {
+          errorElement.style.display = 'block';
+          btn.disabled = false;
+          btn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Login';
+        }
+      }, 1000);
+    });
+    
+    // Check if already logged in when page loads
+    window.addEventListener('DOMContentLoaded', () => {
+      if (sessionStorage.getItem('isAuthenticated')){
+        window.location.href = 'index.html';
+      }
+    });
+  </script>
+</body>
+</html>

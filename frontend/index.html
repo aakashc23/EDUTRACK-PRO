@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎓 EduTrack Pro</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <div class="logo-container">
+          <i class="fas fa-graduation-cap" style="color: var(--gold); font-size: 3rem;"></i>
+          <h1>EduTrack Pro</h1>
+        </div>
+        <button id="logoutBtn" class="btn btn-outline" style="margin: 0;">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+      </div>
+      <div class="logo-container">
+        <i class="fas fa-graduation-cap" style="color: var(--gold); font-size: 3rem;"></i>
+        <h1>EduTrack Pro</h1>
+      </div>
+      <p class="subtitle">Student Performance Monitoring System</p>
+
+      <div class="action-grid">
+        <a href="register.html" class="btn">
+          <i class="fas fa-user-plus"></i> Register Student
+        </a>
+        <a href="attendance.html" class="btn">
+          <i class="fas fa-clipboard-check"></i> Mark Attendance
+        </a>
+        <a href="performance.html" class="btn">
+          <i class="fas fa-chart-line"></i> Record Performance
+        </a>
+        <a href="dashboard.html" class="btn pulse">
+          <i class="fas fa-tachometer-alt"></i> View Dashboard
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  // Check authentication on page load
+  window.addEventListener('DOMContentLoaded', () => {
+    if (!sessionStorage.getItem('isAuthenticated')) {
+      window.location.href = 'login.html';
+    }
+  });
+
+  // Logout functionality
+  document.getElementById('logoutBtn').addEventListener('click', () => {
+    sessionStorage.removeItem('isAuthenticated');
+    window.location.href = 'login.html';
+  });
+</script>
+<script>
+  // Check authentication on page load
+  window.addEventListener('DOMContentLoaded', () => {
+    if (!sessionStorage.getItem('isAuthenticated')) {
+      window.location.href = 'login.html';
+    }
+  });
+</script>
+
+</html>
