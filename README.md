@@ -42,3 +42,15 @@ npm install
 node index.js
 
 # 5. Open frontend in browser (from /public or main folder)
+
+
+
+For better security and flexibility, you can store sensitive details like database credentials and secret keys in a .env file at the project root.
+
+Optional: Use Environment Variables
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=yourpassword
+DB_NAME=edutrackj
+JWT_SECRET=your_jwt_secret_key
+```
